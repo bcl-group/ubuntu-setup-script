@@ -1,12 +1,5 @@
 #!/usr/bin/env bash
 
-export NEWT_COLORS='
-window=,white
-border=,white
-textbox=,white
-button=,gray
-'
-
 which whiptail 2>/dev/null 1>/dev/null || (sudo -E apt update && sudo -E apt install whiptail -y)
 
 bcl_pass=$(whiptail --passwordbox "パスワードを入力してください\\n(Gr*********)" 10 0 3>&1 1>&2 2>&3)
