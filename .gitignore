@@ -1,0 +1,4 @@
+*.sh
+!dec.sh
+!enc.sh
+!setup.sh
