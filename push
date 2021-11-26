@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-git add *
-[[ `git ls-files --deleted` != "" ]] && git rm `git ls-files --deleted`
-git commit -m "" --allow-empty-message
-git push

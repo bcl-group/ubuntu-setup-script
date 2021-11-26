@@ -1,4 +1,9 @@
-*.sh
-!dec.sh
-!enc.sh
-!setup.sh
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+ubuntu-setup-script.sh

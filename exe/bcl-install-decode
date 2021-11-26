@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'rdialogs'
+require 'openssl'
+
+file = 'docs/ubuntu-setup-script2.sh'
+enc_file = 'docs/ubuntu-setup-script.sh.enc'
+
+rd = RDialogs.new('whiptail')
+
+begin
+  pass = rd.password_box('パスワードを入力してください。', '', title: 'Please enter a password.')
+
+  dec = OpenSSL::Cipher.new('AES-256-CBC')
+  dec.decrypt
+  dec.pkcs5_keyivgen(pass)
+
+  File.open(enc_file) do |fenc|
+    dec_data = dec.update(fenc.read) + dec.final
+    File.open(file, 'w') do |fdec|
+      fdec.write(dec_data)
+    end
+  end
+rescue OpenSSL::Cipher::CipherError
+  warn '例外: 共通鍵暗号復号エラー'
+  exit false
+end

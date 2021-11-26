@@ -1,0 +1,19 @@
+PATH
+  remote: .
+  specs:
+    ubuntu-setup-script (0.1.0)
+      rdialogs
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rdialogs (0.1.2)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  ubuntu-setup-script!
+
+BUNDLED WITH
+   2.2.22
