@@ -7,7 +7,7 @@ wget -P /tmp/docs https://bcl-group.github.io/ubuntu-setup-script/ubuntu-setup-s
 
 # Install Ruby
 
-if not test $(which ruby); then
+if ! test $(which ruby); then
     sudo http_proxy=$http_proxy apt update
     sudo http_proxy=$http_proxy apt install git gcc make ruby-dev libssl-dev zlib1g-dev whiptail -y
     git clone --depth 1 https://github.com/rbenv/rbenv ~/.rbenv
