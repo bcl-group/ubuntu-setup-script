@@ -4,7 +4,7 @@
 require 'rdialogs'
 require 'openssl'
 
-file = 'docs/ubuntu-setup-script2.sh'
+file = 'ubuntu-setup-script.sh'
 enc_file = 'docs/ubuntu-setup-script.sh.enc'
 
 rd = RDialogs.new('whiptail')
