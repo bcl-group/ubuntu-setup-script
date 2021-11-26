@@ -18,6 +18,10 @@ if [ ! -d $HOME/.rbenv ]; then
     source ~/.bashrc
     rbenv install 3.0.2
     rbenv global 3.0.2
+else
+    rbenv install 3.0.2 -s
+    eval "$(rbenv init -)"
+    rbenv global 3.0.2
 fi
 
 gem install specific_install
