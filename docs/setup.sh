@@ -2,6 +2,7 @@
 
 export http_proxy=http://proxy.cc.yamaguchi-u.ac.jp:8080
 export https_proxy=https://proxy.cc.yamaguchi-u.ac.jp:8080
+git config --global http.proxy http://proxy.cc.yamaguchi-u.ac.jp:8080
 mkdir -p /tmp/docs
 wget -P /tmp/docs https://bcl-group.github.io/ubuntu-setup-script/ubuntu-setup-script.sh.enc
 
