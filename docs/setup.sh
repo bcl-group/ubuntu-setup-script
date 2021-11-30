@@ -28,7 +28,7 @@ else
 fi
 
 gem install specific_install
-gem specific_install bcl-group/ubuntu-setup-script dev
+gem specific_install https://github.com/bcl-group/ubuntu-setup-script
 
 cd /tmp && bcl-install-decode || exit 1
 
