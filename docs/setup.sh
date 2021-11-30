@@ -17,12 +17,12 @@ if [ ! -d $HOME/.rbenv ]; then
     echo -e "\nexport PATH=\"$PATH:$HOME/.rbenv/bin\"\n" >> ~/.bashrc
     echo 'eval "$(rbenv init -)"' >> ~/.bashrc
     source ~/.bashrc
-    rbenv install 3.0.2
-    rbenv global 3.0.2
+    rbenv install 3.0.3
+    rbenv global 3.0.3
 else
-    rbenv install 3.0.2 -s
+    rbenv install 3.0.3 -s
     eval "$(rbenv init -)"
-    rbenv global 3.0.2
+    rbenv global 3.0.3
 fi
 
 gem install specific_install
