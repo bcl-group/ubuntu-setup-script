@@ -18,6 +18,7 @@ if [ ! -d $HOME/.rbenv ]; then
     echo -e "\nexport PATH=\"$PATH:$HOME/.rbenv/bin\"\n" >> ~/.bashrc
     echo 'eval "$(rbenv init -)"' >> ~/.bashrc
     source ~/.bashrc
+    export RUBY_BUILD_CURL_OPTS="-k -x http://proxy.cc.yamaguchi-u.ac.jp:8080"
     rbenv install 3.0.3
     rbenv global 3.0.3
 else
