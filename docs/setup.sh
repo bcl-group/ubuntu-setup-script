@@ -14,6 +14,7 @@ if [ ! -d $HOME/.rbenv ]; then
     git clone --depth 1 https://github.com/rbenv/rbenv ~/.rbenv
     mkdir -p ~/.rbenv/plugins
     git clone https://github.com/rbenv/ruby-build ~/.rbenv/plugins/ruby-build
+    export PATH=$PATH:$HOME/.rbenv/bin
     echo -e "\nexport PATH=\"$PATH:$HOME/.rbenv/bin\"\n" >> ~/.bashrc
     echo 'eval "$(rbenv init -)"' >> ~/.bashrc
     source ~/.bashrc
