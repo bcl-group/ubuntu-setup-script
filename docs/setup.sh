@@ -19,13 +19,10 @@ if [ ! -d $HOME/.rbenv ]; then
     echo -e "\nexport PATH=\"$PATH:$HOME/.rbenv/bin\"\n" >> ~/.bashrc
     echo 'eval "$(rbenv init -)"' >> ~/.bashrc
     source ~/.bashrc
-    rbenv install 3.0.3 -s
-    rbenv global 3.0.3
-else
-    rbenv install 3.0.3 -s
-    eval "$(rbenv init -)"
-    rbenv global 3.0.3
 fi
+rbenv install 3.0.3 -s
+eval "$(rbenv init -)"
+rbenv global 3.0.3
 
 gem install specific_install
 gem specific_install https://github.com/bcl-group/ubuntu-setup-script
