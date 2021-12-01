@@ -21,9 +21,11 @@ if [ ! -d $HOME/.rbenv ]; then
     source ~/.bashrc
 fi
 cd ~/.rbenv && git pull origin master
-rbenv install 3.0.2 -s
+ruby_versions=$(rbenv install -l 2>/dev/null)
+ruby_version=`echo $ruby_versions | cut -d " " -f 3`
+rbenv install ${ruby_version} -s
 eval "$(rbenv init -)"
-rbenv global 3.0.2
+rbenv global ${ruby_version}
 
 gem install specific_install
 gem specific_install https://github.com/bcl-group/ubuntu-setup-script
