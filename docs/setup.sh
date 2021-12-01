@@ -20,6 +20,7 @@ if [ ! -d $HOME/.rbenv ]; then
     echo 'eval "$(rbenv init -)"' >> ~/.bashrc
     source ~/.bashrc
 fi
+cd ~/.rbenv/plugins/ruby-build 
 rbenv install 3.0.3 -s
 eval "$(rbenv init -)"
 rbenv global 3.0.3
