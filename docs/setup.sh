@@ -14,13 +14,13 @@ if [ ! -d $HOME/.rbenv ]; then
     sudo http_proxy=$http_proxy apt install git gcc make ruby-dev libssl-dev zlib1g-dev whiptail -y
     git clone --depth 1 https://github.com/rbenv/rbenv ~/.rbenv
     mkdir -p ~/.rbenv/plugins
-    git clone https://github.com/rbenv/ruby-build ~/.rbenv/plugins/ruby-build
+    # git clone https://github.com/rbenv/ruby-build ~/.rbenv/plugins/ruby-build
     export PATH=$PATH:$HOME/.rbenv/bin
     echo -e "\nexport PATH=\"$PATH:$HOME/.rbenv/bin\"\n" >> ~/.bashrc
     echo 'eval "$(rbenv init -)"' >> ~/.bashrc
     source ~/.bashrc
 fi
-cd ~/.rbenv/plugins/ruby-build && git pull origin master
+cd ~/.rbenv && git pull origin master
 rbenv install 3.0.3 -s
 eval "$(rbenv init -)"
 rbenv global 3.0.3
