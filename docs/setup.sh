@@ -21,9 +21,9 @@ if [ ! -d $HOME/.rbenv ]; then
     source ~/.bashrc
 fi
 cd ~/.rbenv && git pull origin master
-rbenv install 3.0.3 -s
+rbenv install 3.0.2 -s
 eval "$(rbenv init -)"
-rbenv global 3.0.3
+rbenv global 3.0.2
 
 gem install specific_install
 gem specific_install https://github.com/bcl-group/ubuntu-setup-script
