@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "script/version"
+require_relative 'script/version'
 
 module Ubuntu
   module Setup

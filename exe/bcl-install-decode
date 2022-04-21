@@ -1,16 +1,21 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require 'rdialogs'
 require 'openssl'
+require 'io/console'
 
 file = 'ubuntu-setup-script.sh'
 enc_file = 'docs/ubuntu-setup-script.sh.enc'
 
-rd = RDialogs.new('whiptail')
+if File.exist?(file)
+  warn "#{file} が存在するため、デコードできません。"
+  exit false
+end
 
 begin
-  pass = rd.password_box('パスワードを入力してください。', '', title: 'Please enter a password.')
+  print('パスワードを入力してください: ')
+  pass = $stdin.noecho(&:gets)
+  pass.chomp!
 
   dec = OpenSSL::Cipher.new('AES-256-CBC')
   dec.decrypt
@@ -23,6 +28,8 @@ begin
     end
   end
 rescue OpenSSL::Cipher::CipherError
-  warn '例外: 共通鍵暗号復号エラー'
+  warn '共通鍵暗号復号エラー'
   exit false
 end
+
+puts 'OK'

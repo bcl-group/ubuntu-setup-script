@@ -1,14 +1,15 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require 'rdialogs'
 require 'openssl'
+require 'io/console'
 
 file = 'ubuntu-setup-script.sh'
 enc_file = 'docs/ubuntu-setup-script.sh.enc'
 
-rd = RDialogs.new('whiptail')
-pass = rd.password_box('パスワードを入力してください。', '', title: 'Please enter a password.')
+print('パスワードを入力してください: ')
+pass = $stdin.noecho(&:gets)
+pass.chomp!
 
 enc = OpenSSL::Cipher.new('AES-256-CBC')
 enc.encrypt
@@ -20,3 +21,5 @@ File.open(file) do |fdec|
     fenc.write(enc_data)
   end
 end
+
+puts '完了'
