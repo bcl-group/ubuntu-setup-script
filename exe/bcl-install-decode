@@ -14,7 +14,7 @@ end
 
 begin
   print('パスワードを入力してください: ')
-  pass = gets
+  pass = $stdin.noecho(&:gets)
   pass.chomp!
 
   dec = OpenSSL::Cipher.new('AES-256-CBC')
