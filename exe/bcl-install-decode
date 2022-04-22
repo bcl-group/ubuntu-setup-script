@@ -13,9 +13,7 @@ if File.exist?(file)
 end
 
 begin
-  print('パスワードを入力してください: ')
-  pass = $stdin.noecho(&:gets)
-  pass.chomp!
+  pass = ENV['PASSWD'].chomp
 
   dec = OpenSSL::Cipher.new('AES-256-CBC')
   dec.decrypt

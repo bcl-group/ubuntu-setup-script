@@ -32,8 +32,7 @@ export GEM_HOME=$HOME/.gem
 gem install specific_install
 gem specific_install https://github.com/bcl-group/ubuntu-setup-script
 
-cd /tmp && $HOME/.gem/bin/bcl-install-decode || exit 1
+cd /tmp && PASSWD=$PASSWD $HOME/.gem/bin/bcl-install-decode || exit 1
 
 chmod u+x /tmp/ubuntu-setup-script.sh
-alias setup=/tmp/ubuntu-setup-script.sh
-# /tmp/ubuntu-setup-script.sh
+/tmp/ubuntu-setup-script.sh
