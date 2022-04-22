@@ -18,25 +18,21 @@ if [ ! -d $HOME/.rbenv ]; then
     
     # rbenv のインストール
     wget -q https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer -O- | bash
-    # git clone --depth 1 https://github.com/rbenv/rbenv ~/.rbenv
-    # mkdir -p ~/.rbenv/plugins
-    # git clone https://github.com/rbenv/ruby-build ~/.rbenv/plugins/ruby-build
-    export PATH=$PATH:$HOME/.rbenv/bin
-    echo -e "\nexport PATH=\"$PATH:$HOME/.rbenv/bin\"\n" >> ~/.bashrc
-    echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-    source ~/.bashrc
-fi
-cd ~/.rbenv && git pull origin master
-ruby_versions=$(rbenv install -l 2>/dev/null)
-ruby_version=`echo $ruby_versions | cut -d " " -f 3`
-rbenv install ${ruby_version} -s
-eval "$(rbenv init -)"
-rbenv global ${ruby_version}
 
+    is_rbenv_path=$(cat $HOME/.bashrc | grep PATH | grep rbenv)
+    if [[ -z "$is_rbenv_path" ]]; then
+        export PATH=$PATH:$HOME/.rbenv/bin
+        echo -e "\nexport PATH=\"$PATH:$HOME/.rbenv/bin\"\n" >> ~/.bashrc
+        echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+        source ~/.bashrc
+    fi   
+fi
+
+export GEM_HOME=$HOME/.gem
 gem install specific_install
 gem specific_install https://github.com/bcl-group/ubuntu-setup-script
 
-cd /tmp && bcl-install-decode || exit 1
+cd /tmp && $HOME/.gem/bin/bcl-install-decode || exit 1
 
 chmod u+x /tmp/ubuntu-setup-script.sh
 /tmp/ubuntu-setup-script.sh
