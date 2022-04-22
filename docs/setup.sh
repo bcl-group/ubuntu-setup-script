@@ -15,8 +15,11 @@ if [ ! -d $HOME/.rbenv ]; then
     sudo http_proxy=$http_proxy apt update
     sudo http_proxy=$http_proxy apt install git gcc make ruby-dev libssl-dev zlib1g-dev whiptail \
         autoconf bison build-essential libyaml-dev libreadline6-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev -y
-    git clone --depth 1 https://github.com/rbenv/rbenv ~/.rbenv
-    mkdir -p ~/.rbenv/plugins
+    
+    # rbenv のインストール
+    curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+    # git clone --depth 1 https://github.com/rbenv/rbenv ~/.rbenv
+    # mkdir -p ~/.rbenv/plugins
     # git clone https://github.com/rbenv/ruby-build ~/.rbenv/plugins/ruby-build
     export PATH=$PATH:$HOME/.rbenv/bin
     echo -e "\nexport PATH=\"$PATH:$HOME/.rbenv/bin\"\n" >> ~/.bashrc
@@ -24,11 +27,11 @@ if [ ! -d $HOME/.rbenv ]; then
     source ~/.bashrc
 fi
 cd ~/.rbenv && git pull origin master
-ruby_versions=$(~/.rbenv/bin/rbenv install -l 2>/dev/null)
+ruby_versions=$(rbenv install -l 2>/dev/null)
 ruby_version=`echo $ruby_versions | cut -d " " -f 3`
-~/.rbenv/bin/rbenv install ${ruby_version} -s
-eval "$(~/.rbenv/bin/rbenv init -)"
-~/.rbenv/bin/rbenv global ${ruby_version}
+rbenv install ${ruby_version} -s
+eval "$(rbenv init -)"
+rbenv global ${ruby_version}
 
 gem install specific_install
 gem specific_install https://github.com/bcl-group/ubuntu-setup-script
