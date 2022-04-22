@@ -17,7 +17,7 @@ if [ ! -d $HOME/.rbenv ]; then
         autoconf bison build-essential libyaml-dev libreadline6-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev -y
     
     # rbenv のインストール
-    curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+    wget -q https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer -O- | bash
     # git clone --depth 1 https://github.com/rbenv/rbenv ~/.rbenv
     # mkdir -p ~/.rbenv/plugins
     # git clone https://github.com/rbenv/ruby-build ~/.rbenv/plugins/ruby-build
