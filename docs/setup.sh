@@ -13,7 +13,7 @@ wget -P /tmp/docs https://bcl-group.github.io/ubuntu-setup-script/ubuntu-setup-s
 export RUBY_BUILD_CURL_OPTS="-k -x http://proxy.cc.yamaguchi-u.ac.jp:8080"
 if [ ! -d $HOME/.rbenv ]; then
     sudo http_proxy=$http_proxy apt update
-    sudo http_proxy=$http_proxy apt install git gcc make ruby-dev libssl-dev zlib1g-dev whiptail \
+    sudo http_proxy=$http_proxy apt install git gcc make ruby ruby-dev libssl-dev zlib1g-dev whiptail \
         autoconf bison build-essential libyaml-dev libreadline6-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev -y
 fi
 

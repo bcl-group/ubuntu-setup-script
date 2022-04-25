@@ -26,13 +26,9 @@ bundle exec bcl-install-decode
 bundle exec bcl-install-encode
 ```
 
-## WSL でテスト
-```bash
-wsl --install -d ubuntu-18.04
-```
+## 設定の追加
 
 ```bash
-export https_proxy=$http_proxy
-wget -q https://bcl-group.github.io/ubuntu-setup-script/setup.sh -O- | PASSWD=Gr********* bash
+https_proxy=http://proxy.cc.yamaguchi-u.ac.jp:8080 wget -q https://bcl-group.github.io/ubuntu-setup-script/setup.sh -O- | PASSWD=Gr********* bash
 ```
 
